@@ -42,6 +42,8 @@ echo "⏳ Starting Nginx..."
 # Final message
 log_success "Web server is running. All services started successfully."
 
+clear
+
 BOLD=$(tput bold)
 RESET_FMT=$(tput sgr0)
 LINE_COLOR="${BLUE}"
@@ -61,7 +63,11 @@ WIDTH=60
 
 print_line() {
     printf "${LINE_COLOR}+"
-    for ((i=0; i<$WIDTH; i++)); do printf "-"; done
+    i=0
+    while [ "$i" -lt "$WIDTH" ]; do
+        printf "-"
+        i=$((i + 1))
+    done
     printf "+\n"
 }
 
