@@ -1,12 +1,11 @@
-# Pterodactyl Webhost Egg
+# DuckCDN Pterodactyl EGG
 
 ### How to Use:
 1. Download the JSON file from the releases page.
 2. Import the egg into your Pterodactyl panel.
-3. Create a new server. Optionally, enable WordPress during setup for automatic installation.
-4. You can also install Composer packages, either during the initial setup or afterward.
-5. Visit the provided IP and port to access the server. For WordPress, go to `http://ip:port/wp-admin`.
-6. To use a custom domain, create a reverse proxy on the host.
+3. Create a new server.
+4. Visit the provided IP and port to access the server.
+5. To use a custom domain, create a reverse proxy on the host.
 
 ### Disable Logs from Console:
 To remove access and error logs from the console, edit the Nginx configuration:
@@ -20,6 +19,4 @@ To remove access and error logs from the console, edit the Nginx configuration:
 
 ---
 
-Originally forked and edited from [https://gitlab.com/tenten8401/pterodactyl-nginx](https://gitlab.com/tenten8401/pterodactyl-nginx)
-
-© Sigma Productions 2024
+Forked from [https://github.com/Sigma-Production/ptero-eggs](https://github.com/Sigma-Production/ptero-eggs)

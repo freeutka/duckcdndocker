@@ -41,6 +41,61 @@ fi
 echo "⏳ Starting Nginx..."
 # Final message
 log_success "Web server is running. All services started successfully."
+
+BOLD=$(tput bold)
+RESET_FMT=$(tput sgr0)
+LINE_COLOR="${BLUE}"
+TEXT_COLOR="${WHITE}"
+WARN_COLOR="${YELLOW}"
+LINK_COLOR="${GREY}"
+TITLE_COLOR="${BLUE}"
+
+TITLE="DuckCDN"
+WELCOME="Welcome! Thank you for choosing us."
+MESSAGE="Your CDN has been launched successfully!"
+WARNING="Don't forget to look into webroot/config.php"
+FOOTER="GitHub - https://github.com/freeutka/DuckCDN"
+SIGMA="Powered by https://github.com/Sigma-Production/ptero-eggs"
+
+WIDTH=60
+
+print_line() {
+    printf "${LINE_COLOR}+"
+    for ((i=0; i<$WIDTH; i++)); do printf "-"; done
+    printf "+\n"
+}
+
+print_centered() {
+    local text="$1"
+    local color="$2"
+    local length=${#text}
+    local padding=$(( (WIDTH - length) / 2 ))
+    printf "${LINE_COLOR}|"
+    printf "%*s" $padding ""
+    printf "${color}${BOLD}%s${RESET_FMT}" "$text"
+    printf "%*s" $((WIDTH - padding - length)) ""
+    printf "${LINE_COLOR}|\n"
+}
+
+print_empty() {
+    printf "${LINE_COLOR}|%*s|\n" $WIDTH ""
+}
+
+# Draw box
+print_line
+print_empty
+print_centered "$TITLE" "$TITLE_COLOR"
+print_empty
+print_centered "$WELCOME" "$TEXT_COLOR"
+print_centered "$MESSAGE" "$TEXT_COLOR"
+print_centered "$WARNING" "$WARN_COLOR"
+print_empty
+print_centered "$FOOTER" "$LINK_COLOR"
+print_centered "$SIGMA" "$LINK_COLOR"
+print_empty
+print_line
+echo
+
 /usr/sbin/nginx -c /home/container/nginx/nginx.conf -p /home/container/
 
 # Keep the container running (optional, depending on your container setup)
