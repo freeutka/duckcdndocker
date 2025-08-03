@@ -36,7 +36,8 @@ RUN apk --update --no-cache add \
     php8-fileinfo \
     php8-mbstring \
     php8-tokenizer \
-    php8-simplexml
+    php8-simplexml \
+    ncurses
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
